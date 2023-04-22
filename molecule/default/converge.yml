@@ -1,0 +1,15 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include wandansible.nullmailer"
+      ansible.builtin.include_role:
+        name: "wandansible.nullmailer"
+      vars:
+        nullmailer_adminaddr: admin@example.org
+        nullmailer_allmailfrom: nullmailer@example.org
+        nullmailer_remotes:
+          - smtp.gmail.com smtp --port=465 --auth-login --user=gmail_address --pass=password --ssl
+
+        nullmailer_maxpause: 3600
+        nullmailer_sendtimeout: 0

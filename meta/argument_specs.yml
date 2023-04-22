@@ -1,0 +1,64 @@
+---
+argument_specs:
+  main:
+    short_description: Install and configure nullmailer MTA
+    description: |
+      Installs nullmailer, a simple relay-only mail transport agent, and configures it.
+    options:
+      nullmailer_remotes:
+        description: |
+          List of remote servers to which to send each message
+        type: list
+        elements: str
+        default: []
+
+      nullmailer_defaultdomain:
+        description: |
+          The default domain is appended to any host name
+          that does not contain a period (except localhost)
+        type: str
+        default: The domain name component of inventory_hostname
+
+      nullmailer_adminaddr:
+        description: |
+          All recipients to users at either "localhost"
+          or the canonical host name (from /etc/mailname)
+          are remapped to this address. To send to multiple addresses,
+          put them all on one line separated by a comma.
+        type: str
+        default: null
+
+      nullmailer_allmailfrom:
+        description: This value will override the envelope sender on all messages
+        type: str
+        default: null
+
+      nullmailer_maxpause:
+        description: |
+          The maximum time to pause between successive queue runs, in seconds,
+          or leave empty to use the default value
+        type: int
+        default: null
+
+      nullmailer_pausetime:
+        description: |
+          The minimum time to pause between successive queue runs when there
+          are messages in the queue, in seconds, or leave empty to use the default value
+        type: int
+        default: null
+
+      nullmailer_queuelifetime:
+        description: |
+          The maximum time a message is allowed to live in the queue before
+          being considered permanently failed, in seconds,
+          or leave empty to use the default value
+        type: int
+        default: null
+
+      nullmailer_sendtimeout:
+        description: |
+          The time to wait for a remote module listed above to complete
+          sending a message before killing it and trying again, in seconds,
+          or leave empty to use the default value
+        type: int
+        default: null
