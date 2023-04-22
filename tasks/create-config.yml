@@ -7,4 +7,4 @@
     group: "root"
     mode: "u=rw,g=r,o=r"
   notify: restart nullmailer
-  when: item.config != ""
+  when: item.config
