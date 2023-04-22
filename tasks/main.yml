@@ -1,0 +1,37 @@
+---
+- name: Install nullmailer
+  ansible.builtin.apt:
+    pkg: "nullmailer"
+    install_recommends: false
+    state: present
+
+- name: Configure nullmailer
+  ansible.builtin.include_tasks:
+    file: create-config.yml
+  loop:
+    - name: "defaultdomain"
+      config: "{{ nullmailer_defaultdomain }}"
+    - name: "adminaddr"
+      config: "{{ nullmailer_adminaddr }}"
+    - name: "allmailfrom"
+      config: "{{ nullmailer_allmailfrom }}"
+    - name: "maxpause"
+      config: "{{ nullmailer_maxpause }}"
+    - name: "pausetime"
+      config: "{{ nullmailer_pausetime }}"
+    - name: "queuelifetime"
+      config: "{{ nullmailer_queuelifetime }}"
+    - name: "sendtimeout"
+      config: "{{ nullmailer_sendtimeout }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Configure nullmailer remotes
+  ansible.builtin.template:
+    src: "remotes"
+    dest: "/etc/nullmailer/remotes"
+    owner: "mail"
+    group: "mail"
+    mode: "u=rw,g=,o="
+  notify: restart nullmailer
+  when: nullmailer_remotes | length >= 1

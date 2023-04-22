@@ -1,0 +1,10 @@
+---
+- name: Configure /etc/nullmailer/{{ item.name }}
+  ansible.builtin.copy:
+    content: "{{ item.config }}\n"
+    dest: "/etc/nullmailer/{{ item.name }}"
+    owner: "root"
+    group: "root"
+    mode: "u=rw,g=r,o=r"
+  notify: restart nullmailer
+  when: item.config != ""

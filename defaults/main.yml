@@ -1,0 +1,11 @@
+---
+nullmailer_remotes: []
+
+nullmailer_defaultdomain: "{{ inventory_hostname.split('.')[1:] | join('.') }}"
+nullmailer_adminaddr: ""
+nullmailer_allmailfrom: ""
+
+nullmailer_maxpause: ""
+nullmailer_pausetime: ""
+nullmailer_queuelifetime: ""
+nullmailer_sendtimeout: ""
