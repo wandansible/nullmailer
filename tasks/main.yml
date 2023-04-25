@@ -1,7 +1,9 @@
 ---
-- name: Install nullmailer
+- name: Install mail packages
   ansible.builtin.apt:
-    pkg: "nullmailer"
+    pkg:
+      - "nullmailer"
+      - "bsd-mailx"
     install_recommends: false
     state: present
 
