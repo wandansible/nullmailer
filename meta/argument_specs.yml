@@ -11,6 +11,7 @@ argument_specs:
         type: list
         elements: str
         default: []
+        no_log: true
 
       nullmailer_defaultdomain:
         description: |
