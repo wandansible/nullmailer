@@ -37,3 +37,4 @@
     mode: "u=rw,g=,o="
   notify: restart nullmailer
   when: nullmailer_remotes | length >= 1
+  no_log: true
