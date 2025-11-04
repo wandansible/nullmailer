@@ -27,39 +27,39 @@ argument_specs:
           are remapped to this address. To send to multiple addresses,
           put them all on one line separated by a comma.
         type: str
-        default: null
+        default: ""
 
       nullmailer_allmailfrom:
         description: This value will override the envelope sender on all messages
         type: str
-        default: null
+        default: ""
 
       nullmailer_maxpause:
         description: |
           The maximum time to pause between successive queue runs, in seconds,
           or leave empty to use the default value
-        type: int
-        default: null
+        type: str
+        default: ""
 
       nullmailer_pausetime:
         description: |
           The minimum time to pause between successive queue runs when there
           are messages in the queue, in seconds, or leave empty to use the default value
-        type: int
-        default: null
+        type: str
+        default: ""
 
       nullmailer_queuelifetime:
         description: |
           The maximum time a message is allowed to live in the queue before
           being considered permanently failed, in seconds,
           or leave empty to use the default value
-        type: int
-        default: null
+        type: str
+        default: ""
 
       nullmailer_sendtimeout:
         description: |
           The time to wait for a remote module listed above to complete
           sending a message before killing it and trying again, in seconds,
           or leave empty to use the default value
-        type: int
-        default: null
+        type: str
+        default: ""

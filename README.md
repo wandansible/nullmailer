@@ -19,12 +19,12 @@ Options (= indicates it is required):
                          /etc/mailname) are remapped to this address.
                          To send to multiple addresses, put them all
                          on one line separated by a comma.
-          default: null
+          default: ''
           type: str
 
 - nullmailer_allmailfrom  This value will override the envelope
                            sender on all messages
-          default: null
+          default: ''
           type: str
 
 - nullmailer_defaultdomain  The default domain is appended to any
@@ -36,22 +36,22 @@ Options (= indicates it is required):
 - nullmailer_maxpause  The maximum time to pause between successive
                         queue runs, in seconds, or leave empty to use
                         the default value
-          default: null
-          type: int
+          default: ''
+          type: str
 
 - nullmailer_pausetime  The minimum time to pause between successive
                          queue runs when there are messages in the
                          queue, in seconds, or leave empty to use the
                          default value
-          default: null
-          type: int
+          default: ''
+          type: str
 
 - nullmailer_queuelifetime  The maximum time a message is allowed to
                              live in the queue before being considered
                              permanently failed, in seconds, or leave
                              empty to use the default value
-          default: null
-          type: int
+          default: ''
+          type: str
 
 - nullmailer_remotes  List of remote servers to which to send each
                        message
@@ -64,8 +64,8 @@ Options (= indicates it is required):
                            above to complete sending a message before
                            killing it and trying again, in seconds, or
                            leave empty to use the default value
-          default: null
-          type: int
+          default: ''
+          type: str
 ```
 
 Installation
